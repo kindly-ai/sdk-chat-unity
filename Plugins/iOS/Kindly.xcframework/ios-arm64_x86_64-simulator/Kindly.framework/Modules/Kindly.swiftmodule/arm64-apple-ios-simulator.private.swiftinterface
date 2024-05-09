@@ -1,0 +1,168 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Kindly
+import AVFoundation
+import AVKit
+import Combine
+import CommonCrypto
+import DeveloperToolsSupport
+import Foundation
+@_exported import Kindly
+import LocalAuthentication
+import Network
+import OSLog
+import PhotosUI
+import QuartzCore
+import SafariServices
+import Security
+import SnapKit
+import Starscream
+import Swift
+import SwiftUI
+import SwiftyGif
+import SwiftyJSON
+import SystemConfiguration
+import UIKit.UIColor
+import UIKit.UIDevice
+import UIKit.UIImage
+import UIKit
+import UniformTypeIdentifiers
+import UserNotifications
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct ExternalChatMessage : Swift.Hashable, Swift.Identifiable, Swift.Comparable {
+  public let id: Swift.String
+  public static func < (lhs: Kindly.ExternalChatMessage, rhs: Kindly.ExternalChatMessage) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Kindly.ExternalChatMessage, b: Kindly.ExternalChatMessage) -> Swift.Bool
+  public typealias ID = Swift.String
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ExternalExchangeType : Swift.String, Swift.Encodable {
+  case dialogue
+  case fallback
+  case greeting
+  case systemDialogue
+  case userSays
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ExternalChatMessageSender : Swift.String, Swift.Encodable {
+  case agent
+  case bot
+  case system
+  case unknown
+  case user
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Bot {
+  public let name: Swift.String
+  public let avatarURL: Foundation.URL?
+}
+public struct OEmbedRespnse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct KindlySDKConfig {
+  public var getAuthToken: Kindly.AuthTokenCallback? {
+    get
+    set
+  }
+}
+public struct ExternalChatButton {
+}
+public enum ChatConnectionState {
+  case none
+  case disconnected
+  case connecting
+  case connected
+  case conversationEnded
+  case failed
+  public static func == (a: Kindly.ChatConnectionState, b: Kindly.ChatConnectionState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol KindlyChatClientDelegate : ObjectiveC.NSObject {
+  func didPressButton(chatButton: Kindly.ExternalChatButton, chatLog: [Kindly.ExternalChatMessage])
+}
+public typealias KindlySDK = Kindly.KindlyChatClient
+final public class KindlyChatClient {
+  public static var shared: Kindly.KindlyChatClient!
+  public static var config: Kindly.KindlySDKConfig {
+    get
+    set
+  }
+  public static var connectionState: Kindly.ChatConnectionState {
+    get
+  }
+  public static var delegate: (any Kindly.KindlyChatClientDelegate)! {
+    get
+    set
+  }
+  public static var notificationDelegate: Kindly.NotificationDelegate {
+    get
+  }
+  public static var verboseLogging: Swift.Bool {
+    get
+    set
+  }
+  public init(config: Kindly.KindlySDKConfig)
+  @objc deinit
+}
+extension Kindly.KindlyChatClient {
+  final public class func start(botKey: Swift.String, authTokenCallback: Kindly.AuthTokenCallback? = nil)
+  final public class func setNewContext(_ context: [Swift.String : Swift.String])
+  final public func setNewContext(_ context: [Swift.String : Swift.String])
+  final public class func clearNewContext()
+  final public func clearNewContext()
+  final public class func setAPNSDeviceToken(_ deviceToken: Foundation.Data)
+  final public class func setAPNSDeviceToken(_ deviceToken: Swift.String)
+  @discardableResult
+  final public class func saveAuthToken(_ token: Swift.String) -> Swift.Bool
+  @discardableResult
+  final public func saveAuthToken(_ token: Swift.String) -> Swift.Bool
+  final public class func displayChat(languageCode: Swift.String? = nil, triggerDialogueSlug: Swift.String? = nil)
+  final public func displayChat(languageCode: Swift.String? = nil, triggerDialogueSlug: Swift.String? = nil)
+  final public class func closeChat()
+  final public func closeChat()
+  final public class func endChat() -> Kindly.Promise<Swift.Void>
+  final public func endChat() -> Kindly.Promise<Swift.Void>
+  final public class func notificationReceived(_ userInfo: [Swift.AnyHashable : Any])
+  final public class func notificationReceived(_ notification: UserNotifications.UNNotification)
+  final public class func notificationResponseReceived(_ response: UserNotifications.UNNotificationResponse)
+  final public class func triggerDialogue(id: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers public class NotificationDelegate : ObjectiveC.NSObject, UserNotifications.UNUserNotificationCenterDelegate {
+  @objc public func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, willPresent notification: UserNotifications.UNNotification, withCompletionHandler completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
+  @objc public func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, didReceive response: UserNotifications.UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Promise<T> {
+  @objc deinit
+}
+extension Kindly.Promise {
+  public func fulfill(_ value: T)
+  public func reject(_ error: any Swift.Error)
+}
+public typealias AuthTokenCallback = (_ chatId: Swift.String, _ promise: Kindly.Promise<Swift.String>) -> ()
+extension Kindly.ExternalExchangeType : Swift.Equatable {}
+extension Kindly.ExternalExchangeType : Swift.Hashable {}
+extension Kindly.ExternalExchangeType : Swift.RawRepresentable {}
+extension Kindly.ExternalChatMessageSender : Swift.Equatable {}
+extension Kindly.ExternalChatMessageSender : Swift.Hashable {}
+extension Kindly.ExternalChatMessageSender : Swift.RawRepresentable {}
+extension Kindly.ChatConnectionState : Swift.Equatable {}
+extension Kindly.ChatConnectionState : Swift.Hashable {}
