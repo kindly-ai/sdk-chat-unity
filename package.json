@@ -1,0 +1,12 @@
+{
+    "name": "ai.kindly.Framework",
+    "version": "0.1.5",
+    "displayName": "Kindly SDK",
+    "description": "Kindly AI chat framework",
+    "unity": "2022.3",
+    "author": {
+        "name": "Kindly",
+        "email": "alexy.ib@gmail.com",
+        "url": "https://kindly.ai"
+    }
+}

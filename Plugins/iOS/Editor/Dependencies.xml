@@ -1,0 +1,16 @@
+<dependencies>
+  <iosPods>
+    <iosPod name="Starscream" version="4.0.6" bitcodeEnabled="true"
+            minTargetSdk="12.0" addToAllTargets="false" />
+    <iosPod name="SwiftyGif" version="5.4.4" bitcodeEnabled="true"
+            minTargetSdk="12.0" addToAllTargets="false" />
+    <iosPod name="SnapKit" version="5.6.0" bitcodeEnabled="true"
+            minTargetSdk="12.0" addToAllTargets="false" />
+    <iosPod name="SwiftyJSON" version="5.0.1" bitcodeEnabled="true"
+            minTargetSdk="12.0" addToAllTargets="false" />
+  </iosPods>
+
+  <!-- <sources>
+        <source>https://github.com/CocoaPods/Specs</source>
+      </sources> -->
+</dependencies>

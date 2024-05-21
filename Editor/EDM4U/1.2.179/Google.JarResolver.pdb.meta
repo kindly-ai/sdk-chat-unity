@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 028bf3e1aa13e40909d7ea796b5fc3eb
+labels:
+- gvh
+- gvh_rename_to_disable
+- gvh_version-1.2.179
+- gvhp_exportpath-ExternalDependencyManager/Editor/1.2.179/Google.JarResolver.pdb
+- gvhp_targets-editor
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

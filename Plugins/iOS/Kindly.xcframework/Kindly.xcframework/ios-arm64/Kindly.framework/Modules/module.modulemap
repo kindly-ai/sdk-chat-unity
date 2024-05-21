@@ -1,0 +1,11 @@
+framework module Kindly {
+  umbrella header "Kindly.h"
+  export *
+
+  module * { export * }
+}
+
+module Kindly.Swift {
+  header "Kindly-Swift.h"
+  requires objc
+}
