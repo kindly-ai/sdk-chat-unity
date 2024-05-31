@@ -1,4 +1,4 @@
-# **Unity SDK**
+# Kindly Unity SDK
 
 ```md
 # Kindly Unity SDK
